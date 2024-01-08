@@ -1,12 +1,16 @@
 import {configureStore} from '@reduxjs/toolkit';
 import useReducer from './userSlice';
-import moviesSlice from './moviesSlice';
+import moviesReducer from './moviesSlice';
+import gptReducer from "./gptSlice";
+import configReducer from "./configSlice";
 
 const appStore = configureStore({
     reducer: {
         // here we can combine several slice reducers into one root reducer
         user : useReducer,
-        movies : moviesSlice,
+        movies : moviesReducer,
+        gpt: gptReducer,
+        config: configReducer,
     }
 });
 
